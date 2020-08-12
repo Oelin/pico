@@ -1,13 +1,12 @@
 const http = require('http')
-const db = {}
+const db = []
 
 
 const pico = ({url}, res) => {
 
   if (url.startsWith('/@')) {
-    len = Object.keys(db).length
-    db[len] = url.slice(2)
-    res.end('' + len)
+    res.end('' + db.length)
+    db.push(url.slice(2))
   }
 
   else {
